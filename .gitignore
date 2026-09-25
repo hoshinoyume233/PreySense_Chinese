@@ -16,3 +16,11 @@ debug.log
 *.log
 *.tmp
 *.cache
+
+# Build output / 构建产物
+dist/
+**/dist/
+
+# Local toolchain scratch (dotnet-install SDK) / 本地工具链
+.tools/
+**/.tools/
