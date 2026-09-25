@@ -48,7 +48,7 @@ namespace PreySense.Fan
         private Label labelFanRampUp = null!;
 
         private static readonly byte[] PerfModes = { 0x06, 0x00, 0x01, 0x04, 0x05 };
-        private static readonly string[] PerfModeNames = { "Eco", "Silent", "Balanced", "Performance", "Turbo" };
+        private static readonly string[] PerfModeNames = { "节能", "静音", "均衡", "性能", "狂暴" };
 
         public Fans(MainForm mainForm, WmiController wmi)
         {
@@ -58,7 +58,7 @@ namespace PreySense.Fan
             InitializeComponent();
             CreateMaxFanCheck();
 
-            labelPowerModeTitle.Text = "Windows Power Mode";
+            labelPowerModeTitle.Text = "Windows 电源模式";
             panelCpuLimitsGraph.Visible = false;
             panelGpuOffsetsSection.Visible = false;
             panelPl1.Visible = true;
@@ -80,7 +80,7 @@ namespace PreySense.Fan
             CreateFanCurveCards();
 
             comboWindowsPowerMode.Items.Clear();
-            comboWindowsPowerMode.Items.AddRange(new object[] { "Best power efficiency", "Balanced", "Best performance" });
+            comboWindowsPowerMode.Items.AddRange(new object[] { "最佳能效", "均衡", "最佳性能" });
 
             ConfigureFansLayout();
 

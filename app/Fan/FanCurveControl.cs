@@ -21,7 +21,7 @@ namespace PreySense.Fan
         private const int DragRedrawIntervalMs = 33;
         private const float TempMin = 40f;
         private const float TempMax = 110f;
-        private const string GridFontFamily = "Segoe UI";
+        private static readonly string GridFontFamily = PreySense.UI.UiTheme.FontFamily;
         private const float GridFontSizeWide = 7.5f;
         private const float GridFontSizeNarrow = 7f;
 

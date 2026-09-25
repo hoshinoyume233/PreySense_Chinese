@@ -164,7 +164,7 @@ namespace PreySense.Fan
 
             if (_buttonApplySettings != null)
             {
-                _buttonApplySettings.Text = tabIndex == 0 ? "Apply Limits" : "Apply Overclock";
+                _buttonApplySettings.Text = tabIndex == 0 ? "应用功耗限制" : "应用超频";
                 _buttonApplySettings.Enabled = tabIndex == 0 || _mainForm.GpuMode != 0;
             }
         }
@@ -341,7 +341,7 @@ namespace PreySense.Fan
 
         private void ResetDefaults()
         {
-            if (ConfirmDialog.Show(this, "Reset fan curves, power limits, and Windows power mode to factory defaults?", "Factory Defaults", "Apply") != DialogResult.Yes)
+            if (ConfirmDialog.Show(this, "是否将风扇曲线、功耗限制和 Windows 电源模式恢复为出厂默认值？", "恢复出厂默认", "恢复") != DialogResult.Yes)
                 return;
 
             byte mode = _currentProfile?.PowerMode ?? _wmi.GetPowerProfile();

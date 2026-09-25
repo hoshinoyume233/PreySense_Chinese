@@ -106,7 +106,7 @@ namespace PreySense.UI
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
             Cursor = Cursors.Hand;
-            Font = new Font("Segoe UI", 9f, FontStyle.Regular);
+            Font = new Font(PreySense.UI.UiTheme.FontFamily, 9f, FontStyle.Regular);
 
             // Default dark colors matching G-Helper
             BackColor = Color.FromArgb(46, 46, 46);

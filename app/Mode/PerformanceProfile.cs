@@ -7,7 +7,7 @@ namespace PreySense.Mode
     public class PerformanceProfile
     {
         public byte PowerMode { get; set; }
-        public string Name { get; set; } = "Balanced";
+        public string Name { get; set; } = "均衡";
 
         // CPU Power Limits
         public int CpuPl1 { get; set; } = 45;
@@ -35,7 +35,7 @@ namespace PreySense.Mode
                 0x00 or 0x06 => new PerformanceProfile // Silent / Eco
                 {
                     PowerMode = mode,
-                    Name = mode == 0x06 ? "Eco" : "Silent",
+                    Name = mode == 0x06 ? "节能" : "静音",
                     CpuPl1 = mode == 0x06 ? 45 : 55,
                     CpuPl2 = mode == 0x06 ? 50 : 140,
                     WindowsPowerMode = 0,
@@ -45,7 +45,7 @@ namespace PreySense.Mode
                 0x04 => new PerformanceProfile // Performance
                 {
                     PowerMode = mode,
-                    Name = "Performance",
+                    Name = "性能",
                     CpuPl1 = 75,
                     CpuPl2 = 140,
                     WindowsPowerMode = 2,
@@ -55,7 +55,7 @@ namespace PreySense.Mode
                 0x05 => new PerformanceProfile // Turbo
                 {
                     PowerMode = mode,
-                    Name = "Turbo",
+                    Name = "狂暴",
                     CpuPl1 = 85,
                     CpuPl2 = 140,
                     WindowsPowerMode = 2,
@@ -65,7 +65,7 @@ namespace PreySense.Mode
                 _ => new PerformanceProfile // Balanced (default)
                 {
                     PowerMode = mode,
-                    Name = "Balanced",
+                    Name = "均衡",
                     CpuPl1 = 65,
                     CpuPl2 = 140,
                     WindowsPowerMode = 1,

@@ -16,7 +16,7 @@ namespace PreySense.Helpers
 
         public static readonly string[] UiModeNames =
         {
-            "Static", "Breathing", "Neon", "Wave", "Ripple", "Zoom", "Snake", "Disco"
+            "静态", "呼吸", "霓虹", "波浪", "涟漪", "缩放", "蛇形", "迪斯科"
         };
 
         /// <summary>

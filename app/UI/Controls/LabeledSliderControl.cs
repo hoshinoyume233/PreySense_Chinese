@@ -30,14 +30,14 @@ public class LabeledSliderControl : Panel
 
         _title.AutoSize = false;
         _title.Dock = DockStyle.Fill;
-        _title.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        _title.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
         _title.ForeColor = RForm.foreMain;
         _title.TextAlign = ContentAlignment.BottomLeft;
         _title.Margin = Padding.Empty;
 
         _value.AutoSize = false;
         _value.Dock = DockStyle.Fill;
-        _value.Font = new Font("Segoe UI", 8F, FontStyle.Regular);
+        _value.Font = new Font(PreySense.UI.UiTheme.FontFamily, 8F, FontStyle.Regular);
         _value.ForeColor = RForm.foreMain;
         _value.TextAlign = ContentAlignment.TopRight;
         _value.Margin = Padding.Empty;

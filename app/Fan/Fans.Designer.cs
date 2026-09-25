@@ -157,13 +157,13 @@ namespace PreySense.Fan
             // labelFans
             // 
             labelFans.AutoSize = true;
-            labelFans.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelFans.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelFans.Location = new Point(53, 17);
             labelFans.Margin = new Padding(4, 0, 4, 0);
             labelFans.Name = "labelFans";
             labelFans.Size = new Size(90, 32);
             labelFans.TabIndex = 40;
-            labelFans.Text = "Profile";
+            labelFans.Text = "配置文件";
             // 
             // panelApplyFans
             // 
@@ -198,7 +198,7 @@ namespace PreySense.Fan
             checkApplyFanCurves.Padding = new Padding(16, 6, 16, 6);
             checkApplyFanCurves.Size = new Size(341, 48);
             checkApplyFanCurves.TabIndex = 2;
-            checkApplyFanCurves.Text = "Apply Custom Fan Curve";
+            checkApplyFanCurves.Text = "应用自定义风扇曲线";
             checkApplyFanCurves.UseVisualStyleBackColor = false;
             // panelMainControls
             // 
@@ -295,7 +295,7 @@ namespace PreySense.Fan
             checkApplyCpuLimits.Padding = new Padding(16, 6, 16, 6);
             checkApplyCpuLimits.Size = new Size(490, 46);
             checkApplyCpuLimits.TabIndex = 45;
-            checkApplyCpuLimits.Text = "Apply Power Limits";
+            checkApplyCpuLimits.Text = "应用功耗限制";
             checkApplyCpuLimits.UseVisualStyleBackColor = false;
             // 
             // panelCpuLimitsGraph
@@ -315,7 +315,7 @@ namespace PreySense.Fan
             // 
             // labelCPU
             // 
-            labelCPU.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelCPU.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelCPU.Location = new Point(398, 8);
             labelCPU.Margin = new Padding(4, 0, 4, 0);
             labelCPU.Name = "labelCPU";
@@ -364,7 +364,7 @@ namespace PreySense.Fan
             // 
             // labelPl2
             // 
-            labelPl2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelPl2.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelPl2.Location = new Point(396, 8);
             labelPl2.Margin = new Padding(4, 0, 4, 0);
             labelPl2.Name = "labelPl2";
@@ -413,7 +413,7 @@ namespace PreySense.Fan
             // 
             // labelPl1
             // 
-            labelPl1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelPl1.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelPl1.Location = new Point(396, 10);
             labelPl1.Margin = new Padding(4, 0, 4, 0);
             labelPl1.Name = "labelPl1";
@@ -481,13 +481,13 @@ namespace PreySense.Fan
             // labelCpuLimitsTitle
             // 
             labelCpuLimitsTitle.AutoSize = true;
-            labelCpuLimitsTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelCpuLimitsTitle.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelCpuLimitsTitle.Location = new Point(46, 16);
             labelCpuLimitsTitle.Margin = new Padding(4, 0, 4, 0);
             labelCpuLimitsTitle.Name = "labelCpuLimitsTitle";
             labelCpuLimitsTitle.Size = new Size(160, 32);
             labelCpuLimitsTitle.TabIndex = 39;
-            labelCpuLimitsTitle.Text = "Power Limits";
+            labelCpuLimitsTitle.Text = "功耗限制";
             // 
             // panelCpuLimitsSectionMode
             // 
@@ -506,7 +506,7 @@ namespace PreySense.Fan
             comboWindowsPowerMode.ButtonColor = Color.FromArgb(255, 255, 255);
             comboWindowsPowerMode.DropDownStyle = ComboBoxStyle.DropDownList;
             comboWindowsPowerMode.FormattingEnabled = true;
-            comboWindowsPowerMode.Items.AddRange(new object[] { "Disabled", "Enabled", "Aggressive", "Efficient Enabled", "Efficient Aggressive", "Aggressive at Guaranteed", "Efficient at Guaranteed" });
+            comboWindowsPowerMode.Items.AddRange(new object[] { "已禁用", "已启用", "激进", "高效已启用", "高效激进", "保证频率下激进", "保证频率下高效激进" });
             comboWindowsPowerMode.Location = new Point(13, 12);
             comboWindowsPowerMode.Margin = new Padding(4);
             comboWindowsPowerMode.Name = "comboWindowsPowerMode";
@@ -540,13 +540,13 @@ namespace PreySense.Fan
             // labelPowerModeTitle
             // 
             labelPowerModeTitle.AutoSize = true;
-            labelPowerModeTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelPowerModeTitle.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelPowerModeTitle.Location = new Point(46, 18);
             labelPowerModeTitle.Margin = new Padding(4, 0, 4, 0);
             labelPowerModeTitle.Name = "labelPowerModeTitle";
             labelPowerModeTitle.Size = new Size(271, 32);
             labelPowerModeTitle.TabIndex = 39;
-            labelPowerModeTitle.Text = "Windows Power Mode";
+            labelPowerModeTitle.Text = "Windows 电源模式";
             // 
             // panelGpuOffsetsSection
             // 
@@ -592,13 +592,13 @@ namespace PreySense.Fan
             // labelGpuOffsets
             // 
             labelGpuOffsets.AutoSize = true;
-            labelGpuOffsets.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelGpuOffsets.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelGpuOffsets.Location = new Point(45, 17);
             labelGpuOffsets.Margin = new Padding(4, 0, 4, 0);
             labelGpuOffsets.Name = "labelGpuOffsets";
             labelGpuOffsets.Size = new Size(162, 32);
             labelGpuOffsets.TabIndex = 40;
-            labelGpuOffsets.Text = "GPU Settings";
+            labelGpuOffsets.Text = "显卡设置";
             // 
             // panelNav
             // 
@@ -684,7 +684,7 @@ namespace PreySense.Fan
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.Manual;
-            Text = "Fans and Power";
+            Text = "风扇与功耗";
             panelFans.ResumeLayout(false);
             panelFans.PerformLayout();
 

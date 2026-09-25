@@ -84,7 +84,7 @@ namespace PreySense.UI
             bool light = UiTheme.IsLightTheme();
             BackColor = light ? Color.FromArgb(255, 255, 255) : Color.FromArgb(46, 46, 46);
             ForeColor = light ? Color.FromArgb(20, 20, 20) : Color.FromArgb(240, 240, 240);
-            Font = new Font("Segoe UI", 9f, FontStyle.Regular);
+            Font = new Font(PreySense.UI.UiTheme.FontFamily, 9f, FontStyle.Regular);
             Cursor = Cursors.Hand;
         }
 

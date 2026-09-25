@@ -37,7 +37,7 @@ public class SectionCardControl : Panel
 
         _title.AutoSize = false;
         _title.Dock = DockStyle.Fill;
-        _title.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        _title.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
         _title.ForeColor = RForm.foreMain;
         _title.Margin = Padding.Empty;
         _title.TextAlign = ContentAlignment.MiddleLeft;

@@ -10,7 +10,7 @@ namespace PreySense.Dialogs
         private RButton _buttonYes = null!;
         private RButton _buttonNo = null!;
 
-        private void InitializeComponent(string message, string title, string yesText = "Apply && Restart Now", string noText = "Cancel")
+        private void InitializeComponent(string message, string title, string yesText = "应用并立即重启", string noText = "取消")
         {
             float scale = DeviceDpi / 96f;
             int S(int px) => (int)Math.Round(px * scale);

@@ -238,7 +238,7 @@ namespace PreySense
         {
             int currentHz = _currentRefreshRate;
             bool odActive = (currentHz == _maxHz) && (_maxHz > 60);
-            labelScreen.Text = $"Laptop Screen: {currentHz}Hz" + (odActive ? " + Overdrive" : "");
+            labelScreen.Text = $"屏幕刷新率：{currentHz}Hz" + (odActive ? " + 过驱" : "");
             SaveState("RefreshRate", currentHz);
             SaveState("LcdOverdrive", odActive ? 1 : 0);
         }

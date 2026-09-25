@@ -18,7 +18,7 @@ namespace PreySense.Rgb
 
         private static readonly string[] CustomPresetNames =
         {
-            "None / Custom", "Ice Cold", "Volcano", "Cyberpunk", "Sunset Glow", "Deep Space", "Nordic Aurora", "Magma Flow"
+            "无 / 自定义", "冰寒", "火山", "赛博朋克", "日落余晖", "深空", "北欧极光", "岩浆流"
         };
 
         private static readonly Color[][] CustomPresetColors =

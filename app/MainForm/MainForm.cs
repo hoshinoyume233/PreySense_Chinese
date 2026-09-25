@@ -164,12 +164,12 @@ namespace PreySense
                 {
                     var choice = PreySense.Dialogs.ConfirmDialog.Show(
                         this,
-                        "Prey Sense can communicate with your Acer notebook using WMI calls or the default Acer background services.\n\n" +
-                        "Acer Services (Recommended): Maximum compatibility, relies on default Acer background services.\n" +
-                        "WMI Interface (Faster): Direct WMI calls. Faster execution but may not function on all notebook models.",
-                        "Hardware Control Mode",
-                        "WMI Interface",
-                        "Acer Services (Recommended)"
+                        "Prey Sense 可以通过 WMI 调用或默认的 Acer 后台服务与你的 Acer 笔记本通信。\n\n" +
+                        "Acer 服务（推荐）：兼容性最好，依赖 Acer 默认后台服务。\n" +
+                        "WMI 接口（更快）：直接进行 WMI 调用，执行更快，但可能不适用于所有机型。",
+                        "硬件控制方式",
+                        "WMI 接口",
+                        "Acer 服务（推荐）"
                     );
 
                     if (choice == DialogResult.Yes)
@@ -229,7 +229,7 @@ namespace PreySense
             tableButtons.Controls.Add(_footerQuickActions, 0, 0);
             tableButtons.SetColumnSpan(_footerQuickActions, 2);
 
-            buttonQuit.Text = "Quit";
+            buttonQuit.Text = "退出";
             buttonQuit.Image = GetThemeIcon(ResizeImageToSize(Properties.Resources.icons8_quit_32, 18, 18));
             buttonQuit.ImageAlign = ContentAlignment.MiddleLeft;
             buttonQuit.TextAlign = ContentAlignment.MiddleCenter;
@@ -355,7 +355,7 @@ namespace PreySense
                     sliderBatteryChargeLimit.Value = val;
                     return;
                 }
-                labelBatteryStatusLimitTitle.Text = $"Battery Charge Limit: {sliderBatteryChargeLimit.Value}%";
+                labelBatteryStatusLimitTitle.Text = $"电池充电上限：{sliderBatteryChargeLimit.Value}%";
                 UpdateBatteryLimitButtonFromValue(sliderBatteryChargeLimit.Value);
                 if (_isLoaded && !_isApplyingSavedBatteryLimit)
                 {
@@ -370,7 +370,7 @@ namespace PreySense
                     _pendingBatteryMode = -1;
                 }
             };
-            labelBatteryStatusLimitTitle.Text = $"Battery Charge Limit: {sliderBatteryChargeLimit.Value}%"; // Show value at launch
+            labelBatteryStatusLimitTitle.Text = $"电池充电上限：{sliderBatteryChargeLimit.Value}%"; // Show value at launch
             UpdateBatteryLimitButtonFromValue(sliderBatteryChargeLimit.Value);
             buttonBatteryFull.Click += (s, e) => {
                 int nextMode = sliderBatteryChargeLimit.Value == 80 ? 0 : 1;
@@ -443,8 +443,8 @@ namespace PreySense
 
                         if (isFormVisible)
                         {
-                            labelCpuFanStatus.Text = _cpuTemp > 0 ? $"CPU: {_cpuTemp}°C  {_cpuRpm} RPM" : $"CPU: --°C  {_cpuRpm} RPM";
-                            labelGpuModeFan.Text = _gpuTemp > 0 ? $"GPU: {_gpuTemp}°C  {_gpuRpm} RPM" : $"GPU: 0°C  {_gpuRpm} RPM";
+                            labelCpuFanStatus.Text = _cpuTemp > 0 ? $"CPU：{_cpuTemp}°C  {_cpuRpm} RPM" : $"CPU：--°C  {_cpuRpm} RPM";
+                            labelGpuModeFan.Text = _gpuTemp > 0 ? $"GPU：{_gpuTemp}°C  {_gpuRpm} RPM" : $"GPU：0°C  {_gpuRpm} RPM";
 
                             _currentRefreshRate = currentHz;
 
@@ -1025,18 +1025,18 @@ namespace PreySense
             UpdatePowerButtonAccentForPowerSource(onBattery);
             if (onBattery)
             {
-                if (buttonEcoMode.Text != "Eco")
+                if (buttonEcoMode.Text != "节能")
                 {
-                    buttonEcoMode.Text = "Eco";
+                    buttonEcoMode.Text = "节能";
                 }
                 buttonPerformanceMode.Enabled = true;
                 buttonTurboFanMode.Enabled = true;
             }
             else
             {
-                if (buttonEcoMode.Text != "Silent")
+                if (buttonEcoMode.Text != "静音")
                 {
-                    buttonEcoMode.Text = "Silent";
+                    buttonEcoMode.Text = "静音";
                 }
                 buttonPerformanceMode.Enabled = true;
                 buttonTurboFanMode.Enabled = true;
@@ -1116,12 +1116,12 @@ namespace PreySense
             _trayIcon?.Dispose();
 
             _trayMenu = new ContextMenuStrip();
-            var openItem = new ToolStripMenuItem("Prey Sense", LoadTrayMenuImage(), (_, _) => ShowApp())
+            var openItem = new ToolStripMenuItem("打开 Prey Sense", LoadTrayMenuImage(), (_, _) => ShowApp())
             {
                 ImageScaling = ToolStripItemImageScaling.SizeToFit
             };
             _trayMenu.Items.Add(openItem);
-            _trayMenu.Items.Add("Quit", null, (_, _) => QuitApplication());
+            _trayMenu.Items.Add("退出", null, (_, _) => QuitApplication());
 
             _trayIcon = new NotifyIcon
             {

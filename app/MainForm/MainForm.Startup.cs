@@ -19,7 +19,7 @@ namespace PreySense
             MinimizeBox = false;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Prey Sense - v1.4.0";
+            Text = "Prey Sense - v1.4.0 汉化版";
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
@@ -29,15 +29,15 @@ namespace PreySense
             buttonTurboFanMode.Secondary = false;
             buttonTurboFanModePower.Secondary = false;
 
-            buttonEcoMode.Text = "Silent";
-            buttonBalancedMode.Text = "Balanced";
-            buttonPerformanceMode.Text = "Performance";
-            buttonTurboFanMode.Text = "Turbo";
+            buttonEcoMode.Text = "静音";
+            buttonBalancedMode.Text = "均衡";
+            buttonPerformanceMode.Text = "性能";
+            buttonTurboFanMode.Text = "狂暴";
 
-            buttonEnduranceMode.Text = "Endurance";
-            buttonGpuStandardMode.Text = "Standard";
-            buttonGpuUltimateMode.Text = "Ultimate";
-            buttonTurboFanModePower.Text = "Fans + Power";
+            buttonEnduranceMode.Text = "集显模式";
+            buttonGpuStandardMode.Text = "标准模式";
+            buttonGpuUltimateMode.Text = "独显直连";
+            buttonTurboFanModePower.Text = "风扇 + 功耗";
 
             buttonEcoMode.BorderColor = SilentModeOutlineColor;
             buttonBalancedMode.BorderColor = colorStandard;
@@ -53,7 +53,7 @@ namespace PreySense
             buttonAutoRefreshRate.BorderColor = colorGray;
             buttonRgbLighting.BorderColor = colorGray;
 
-            buttonColorProfiles.Text = "Display";
+            buttonColorProfiles.Text = "显示设置";
             buttonColorProfiles.TabStop = false;
             buttonColorProfiles.Borderless = false;
             buttonColorProfiles.Secondary = true;
@@ -61,7 +61,7 @@ namespace PreySense
             buttonColorProfiles.ForeColor = foreMain;
             buttonColorProfiles.FlatAppearance.BorderColor = borderSecond;
             buttonColorProfiles.BorderColor = colorGray;
-            buttonColorProfiles.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            buttonColorProfiles.Font = new Font(PreySense.UI.UiTheme.FontFamily, 8F, FontStyle.Bold);
             buttonColorProfiles.TextAlign = ContentAlignment.MiddleCenter;
             buttonColorProfiles.Width = 80;
             buttonColorProfiles.Margin = new Padding(0, 4, 0, 4);
@@ -215,11 +215,11 @@ namespace PreySense
                                 {
                                     DialogResult result = Dialogs.ConfirmDialog.Show(
                                         this,
-                                        $"Version {latestTag} of Prey Sense is available.\n\n" +
-                                        "Would you like to open the GitHub repository to download it?",
-                                        "Prey Sense - Update Available",
-                                        "Download",
-                                        "Later");
+                                        $"Prey Sense {latestTag} 版本已发布。\n\n" +
+                                        "是否打开 GitHub 仓库下载新版本？",
+                                        "Prey Sense - 有可用更新",
+                                        "去下载",
+                                        "稍后再说");
 
                                     if (result == DialogResult.Yes)
                                     {

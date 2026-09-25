@@ -12,6 +12,24 @@ namespace PreySense.UI
         private readonly RCheckBox[] _graphs = new RCheckBox[8];
         private static readonly string[] MetricOptions = { "None", "Usage", "Temperature", "Clock", "Power", "Memory", "Fan Speed", "Voltage", "Memory Speed" };
 
+        /// <summary>
+        /// Localized labels for the column dropdowns. The identifiers stored in
+        /// <see cref="AppConfig"/> stay English because the overlay matches on them.
+        /// </summary>
+        private static readonly string[] MetricDisplayNames = { "无", "占用率", "温度", "频率", "功耗", "内存", "风扇转速", "电压", "内存频率" };
+
+        private static string MetricDisplay(string identifier)
+        {
+            int index = Array.IndexOf(MetricOptions, identifier);
+            return index >= 0 ? MetricDisplayNames[index] : MetricDisplayNames[0];
+        }
+
+        private static string MetricIdentifier(string? display)
+        {
+            int index = Array.IndexOf(MetricDisplayNames, display);
+            return index >= 0 ? MetricOptions[index] : MetricOptions[0];
+        }
+
         public MetricsSettingsForm()
         {
             InitTheme(true);
@@ -21,7 +39,7 @@ namespace PreySense.UI
             int height = (int)(350 * scale); // Fits 8 rows and header checkbox perfectly
 
             ClientSize = new Size(width, height);
-            UiTheme.ApplyFixedDialog(this, "Metrics Overlay Settings");
+            UiTheme.ApplyFixedDialog(this, "监控悬浮窗设置");
             ShowIcon = false;
 
             var builder = new UiBuilder(scale, width);
@@ -38,11 +56,11 @@ namespace PreySense.UI
                 new ColumnStyle(SizeType.Percent, 100F),
                 new ColumnStyle(SizeType.AutoSize));
 
-            var titleLabel = builder.Text("Overlay Settings", fontHeader, UiTheme.TextPrimary);
+            var titleLabel = builder.Text("悬浮窗设置", fontHeader, UiTheme.TextPrimary);
 
             var chkShowFps = new RCheckBox
             {
-                Text = "Show FPS",
+                Text = "显示 FPS",
                 Font = fontRegular,
                 ForeColor = foreMain,
                 BackColor = buttonSecond,
@@ -85,7 +103,7 @@ namespace PreySense.UI
                 int defaultChecked = (colIdx == 4) ? 1 : 0;
                 var chkGraph = new RCheckBox
                 {
-                    Text = "Graph",
+                    Text = "曲线图",
                     Font = fontRegular,
                     ForeColor = foreMain,
                     BackColor = buttonSecond,
@@ -102,14 +120,14 @@ namespace PreySense.UI
 
                 _graphs[colIdx] = chkGraph;
 
-                var lbl = builder.Text($"Col {colIdx + 1}:", fontRegular, UiTheme.TextMuted);
-                var combo = builder.Combo((int)(120 * scale), fontRegular, 28);
-                combo.Items.AddRange(MetricOptions);
+                var lbl = builder.Text($"第 {colIdx + 1} 列：", fontRegular, UiTheme.TextMuted);
+                var combo = builder.Combo((int)(132 * scale), fontRegular, 28);
+                foreach (string identifier in MetricOptions) combo.Items.Add(MetricDisplay(identifier));
                 int selIdx = Array.IndexOf(MetricOptions, currentVal);
                 combo.SelectedIndex = selIdx >= 0 ? selIdx : 0;
                 
                 combo.SelectedIndexChanged += (s, e) => {
-                    string selected = combo.SelectedItem?.ToString() ?? "None";
+                    string selected = MetricIdentifier(combo.SelectedItem?.ToString());
                     PreySense.Overlay.AppConfig.Set(configKey, selected);
                     Program.GetHardwareOverlay().RefreshDisplayFlags();
                 };

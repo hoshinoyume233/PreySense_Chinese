@@ -23,9 +23,9 @@ public partial class ColorForm : RForm
         InitTheme(true);
 
         _blueLightCombo.Items.AddRange(new object[] {
-            "Off",
-            "Low (18% Reduction)",
-            "High (36% Reduction)"
+            "关闭",
+            "低（降低 18%）",
+            "高（降低 36%）"
         });
         _blueLightCombo.SelectedIndexChanged += (s, e) => { if (!_isLoading) RequestApply(); };
 

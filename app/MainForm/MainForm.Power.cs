@@ -123,7 +123,7 @@ namespace PreySense
 
         private void LoadPersistedFanState(RegistryKey key)
         {
-            labelBatteryStatusLimitTitle.Text = $"Battery Charge Limit: {sliderBatteryChargeLimit.Value}%";
+            labelBatteryStatusLimitTitle.Text = $"电池充电上限：{sliderBatteryChargeLimit.Value}%";
 
             int calibrated = GetRegistryInt(key, "Fan_Calibrated", 0);
             if (calibrated == 1)
@@ -177,14 +177,7 @@ namespace PreySense
 
             byte previousMode = IsKnownPowerMode(_lastKnownProfile) ? _lastKnownProfile : GetActivePowerMode();
             byte currentMode = 0x01;
-            string modeName = mode switch
-            {
-                0x00 => "Silent",
-                0x04 => "Performance",
-                0x05 => "Turbo",
-                0x06 => "Eco",
-                _ => "Balanced"
-            };
+            string modeName = ModeDisplayName(mode);
             try
             {
                 using var k = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PreySense");
@@ -240,7 +233,7 @@ namespace PreySense
 
                 try
                 {
-                    await PreySense.Mode.ProfileManager.ApplyProfileAsync(modeName, _wmi);
+                    await PreySense.Mode.ProfileManager.ApplyProfileAsync(PreySense.Mode.ProfileManager.LoadProfile(mode), _wmi);
                 }
                 catch (Exception ex)
                 {
@@ -289,17 +282,19 @@ namespace PreySense
         {
             _lastKnownProfile = mode;
             HighlightPowerBtn(mode);
-            string modeName = mode switch
-            {
-                0x00 => "Silent",
-                0x04 => "Performance",
-                0x05 => "Turbo",
-                0x06 => "Eco",
-                _ => "Balanced"
-            };
-            UpdatePerformanceModeLabel(modeName);
+            UpdatePerformanceModeLabel(ModeDisplayName(mode));
             fansForm?.SyncActiveMode(mode);
         }
+
+        /// <summary>Localized display name for a WMI performance-mode code.</summary>
+        internal static string ModeDisplayName(byte mode) => mode switch
+        {
+            0x00 => "静音",
+            0x04 => "性能",
+            0x05 => "狂暴",
+            0x06 => "节能",
+            _ => "均衡"
+        };
 
         private void HighlightPowerBtn(byte mode)
         {
@@ -312,8 +307,8 @@ namespace PreySense
         private void UpdatePerformanceModeLabel(string modeName, bool batteryAutoEco = false)
         {
             labelPerformanceMode.Text = batteryAutoEco
-                ? $"Performance Mode: {modeName} (Battery)"
-                : $"Performance Mode: {modeName}";
+                ? $"性能模式：{modeName}（电池）"
+                : $"性能模式：{modeName}";
         }
 
         private void ToggleTurboMode()
@@ -373,7 +368,7 @@ namespace PreySense
                     powerMode = 0x06;
                     SaveState("PowerBattery", powerMode);
                     ApplyPowerMode(powerMode);
-                    UpdatePerformanceModeLabel("Eco", batteryAutoEco: true);
+                    UpdatePerformanceModeLabel(ModeDisplayName(0x06), batteryAutoEco: true);
                     return;
                 }
             }
@@ -429,10 +424,10 @@ namespace PreySense
 
             string labelText = mode switch
             {
-                0 => "GPU Mode: iGPU only",
-                1 => "GPU Mode: iGPU + dGPU",
-                2 => "GPU Mode: dGPU exclusive",
-                _ => "GPU Mode"
+                0 => "显卡模式：仅集显",
+                1 => "显卡模式：集显 + 独显",
+                2 => "显卡模式：独显直连",
+                _ => "显卡模式"
             };
             labelGpuMode.Text = labelText;
             labelGpuHint.Text = "";
@@ -479,8 +474,8 @@ namespace PreySense
             if (mode == 2)
             {
                 var result = ConfirmDialog.Show(this,
-                    "Switching to Ultimate Mode requires a restart.\nBefore restarting, save any open files and close all programs.",
-                    "Restart Required");
+                    "切换到独显直连模式需要重启电脑。\n重启前请保存好正在编辑的文件并关闭所有程序。",
+                    "需要重启");
                 if (result != DialogResult.Yes)
                 {
                     MarkGpuMode(oldMode);
@@ -520,8 +515,8 @@ namespace PreySense
             if (oldMode == 2)
             {
                 var result = ConfirmDialog.Show(this,
-                    "Switching out of Ultimate Mode requires a restart.\nBefore restarting, save any open files and close all programs.",
-                    "Restart Required");
+                    "退出独显直连模式需要重启电脑。\n重启前请保存好正在编辑的文件并关闭所有程序。",
+                    "需要重启");
                 if (result != DialogResult.Yes)
                 {
                     MarkGpuMode(2);

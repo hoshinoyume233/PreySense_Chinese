@@ -30,7 +30,7 @@ public sealed record PawnIoCapability
                     Installed = false,
                     Accessible = false,
                     AdminRequired = reason.Contains("Administrator", StringComparison.OrdinalIgnoreCase),
-                    StatusText = "PawnIO missing",
+                    StatusText = "PawnIO 未安装",
                     DetailText = reason
                 };
             }
@@ -44,7 +44,7 @@ public sealed record PawnIoCapability
                 {
                     Installed = true,
                     Accessible = true,
-                    StatusText = "PawnIO installed",
+                    StatusText = "PawnIO 已安装",
                     DetailText = $"Embedded resource '{resourceName}' not found."
                 };
             }
@@ -59,7 +59,7 @@ public sealed record PawnIoCapability
                     Installed = true,
                     Accessible = true,
                     AdminRequired = initError.Contains("Administrator", StringComparison.OrdinalIgnoreCase),
-                    StatusText = "PawnIO unavailable",
+                    StatusText = "PawnIO 不可用",
                     DetailText = initError
                 };
             }
@@ -86,7 +86,7 @@ public sealed record PawnIoCapability
                 CanReadMsr = readOk,
                 CanWriteMsr = writeOk,
                 LockLikelyPresent = lockLikely,
-                StatusText = writeOk ? "PawnIO ready" : readOk ? "MSR read only" : "PawnIO partial",
+                StatusText = writeOk ? "PawnIO 就绪" : readOk ? "MSR 只读" : "PawnIO 部分可用",
                 DetailText = writeOk
                     ? "CPU power tuning is available."
                     : readOk
@@ -98,7 +98,7 @@ public sealed record PawnIoCapability
         {
             return report with
             {
-                StatusText = "PawnIO check failed",
+                StatusText = "PawnIO 检测失败",
                 DetailText = ex.Message
             };
         }

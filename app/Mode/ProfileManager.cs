@@ -213,20 +213,11 @@ namespace PreySense.Mode
         }
 
         /// <summary>
-        /// Applies the hardware settings from a profile, respecting the per-category apply flags.
-        /// Only applies settings where the corresponding checkbox was enabled.
+        /// Applies the hardware settings for a WMI power-mode code, respecting the
+        /// per-category apply flags. Only applies settings the user opted into.
         /// </summary>
-        public static async Task ApplyProfileAsync(string modeName, WmiController? wmi = null)
+        public static async Task ApplyProfileAsync(byte mode, WmiController? wmi = null)
         {
-            byte mode = modeName switch
-            {
-                "Silent" => 0x00,
-                "Eco" => 0x06,
-                "Performance" => 0x04,
-                "Turbo" => 0x05,
-                _ => 0x01
-            };
-
             var profile = LoadProfile(mode);
             await ApplyProfileAsync(profile, wmi);
         }

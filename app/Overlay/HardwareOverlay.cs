@@ -18,7 +18,7 @@ namespace PreySense.Overlay
         private int _scalePercent = 100;
 
         // Fixed base scale, deliberately independent of Windows DPI. 2.0 reproduces
-        // the size the overlay had at 200% display scaling â€” the desired default.
+        // the size the overlay had at 200% display scaling — the desired default.
         private const float BaseScale = 2.0f;
 
         private bool _dragging;
@@ -26,7 +26,7 @@ namespace PreySense.Overlay
         private Point _dragWindowStart;
         private bool _dragModeActive;
 
-        // â”€â”€ Layout constants (base = 96 dpi) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        // ── Layout constants (base = 96 dpi) ────────────────────────────────────
         private const float BaseFontSize = 9.0f;
         private const float BaseRpmFontSize = 6.0f;
         private const int BaseLineHeight = 15;
@@ -271,7 +271,7 @@ namespace PreySense.Overlay
         private static double D(object? v) { try { return v is null ? 0.0 : Convert.ToDouble(v); } catch { return 0.0; } }
 
         private static string FmtTemp(double t, bool zeroWhenUnavailable = false) =>
-            ((int)Math.Max(0, Math.Round(t)) + "°C").PadLeft(5);
+            ((int)Math.Max(0, Math.Round(t)) + "掳C").PadLeft(5);
 
         private static string FmtPow(double p) =>
             Math.Max(0, Math.Round(p, 1)).ToString("F1") + "W";
@@ -703,7 +703,7 @@ namespace PreySense.Overlay
         {
             if (string.IsNullOrEmpty(text)) return 0f;
 
-            string[] units = { "GHz", "MHz", "mV", "GB", "W", "%", "v", "Â°C", "Â°" };
+            string[] units = { "GHz", "MHz", "mV", "GB", "W", "%", "v", "脗掳C", "脗掳" };
             string matchedUnit = "";
             string trimmed = text.Trim();
             foreach (var u in units)
@@ -730,7 +730,7 @@ namespace PreySense.Overlay
         {
             if (string.IsNullOrEmpty(text)) return 0f;
 
-            string[] units = { "GHz", "MHz", "mV", "GB", "W", "%", "v", "Â°C", "Â°" };
+            string[] units = { "GHz", "MHz", "mV", "GB", "W", "%", "v", "脗掳C", "脗掳" };
             string matchedUnit = "";
             string trimmed = text.Trim();
             foreach (var u in units)
@@ -950,7 +950,7 @@ namespace PreySense.Overlay
         /// <summary>Called by MetricsSettingsForm when the user changes checkboxes while overlay is running.</summary>
         public void RefreshDisplayFlags()
         {
-            // Writing bool flags is atomic on the CLR â€” safe to call from any thread.
+            // Writing bool flags is atomic on the CLR — safe to call from any thread.
             // The overlay's timer Tick fires every ~1s and will pick up the new flags
             // on the next render cycle automatically.
             EnsureFpsMonitor();

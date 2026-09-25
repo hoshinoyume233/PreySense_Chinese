@@ -64,7 +64,7 @@ namespace PreySense.Fan
             _cpuCurveCard = new SectionCardControl
             {
                 Dock = DockStyle.Fill,
-                SectionTitle = "CPU Fan",
+                SectionTitle = "CPU 风扇",
                 SectionIcon = GetSectionIcon(Properties.Resources.icons8_fan_48)
             };
             _cpuCurveCard.Body.Padding = new Padding(0);
@@ -74,7 +74,7 @@ namespace PreySense.Fan
             _gpuCurveCard = new SectionCardControl
             {
                 Dock = DockStyle.Fill,
-                SectionTitle = "GPU Fan",
+                SectionTitle = "GPU 风扇",
                 SectionIcon = GetSectionIcon(Properties.Resources.icons8_fan_48)
             };
             _gpuCurveCard.Body.Padding = new Padding(0);
@@ -111,7 +111,7 @@ namespace PreySense.Fan
 
             checkMaxFans = new RCheckBox
             {
-                Text = "Max Fans",
+                Text = "最大风扇",
                 AutoSize = true,
                 Dock = DockStyle.None,
                 Margin = Padding.Empty,
@@ -280,9 +280,9 @@ namespace PreySense.Fan
 
             labelFanRampUp = new Label
             {
-                Text = "Ramp Up",
+                Text = "升速时间",
                 ForeColor = foreMain,
-                Font = new Font("Segoe UI", 9f),
+                Font = new Font(PreySense.UI.UiTheme.FontFamily, 9f),
                 TextAlign = ContentAlignment.MiddleLeft,
                 Height = S(28),
                 AutoSize = true,
@@ -366,9 +366,9 @@ namespace PreySense.Fan
             var caption = new Label
             {
                 Dock = DockStyle.Fill,
-                Text = "Performance Mode",
+                Text = "性能模式",
                 ForeColor = foreMain,
-                Font = new Font("Segoe UI", 9f, FontStyle.Bold),
+                Font = new Font(PreySense.UI.UiTheme.FontFamily, 9f, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleLeft,
                 Margin = Padding.Empty,
                 AutoSize = true
@@ -402,10 +402,10 @@ namespace PreySense.Fan
             buttonRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             buttonRow.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-            _buttonSaveSettings = CreateFooterButton("Save Settings", S);
+            _buttonSaveSettings = CreateFooterButton("保存设置", S);
             _buttonSaveSettings.Margin = new Padding(S(4), 0, 0, S(8));
 
-            _buttonApplySettings = CreateFooterButton("Apply Power Limits", S);
+            _buttonApplySettings = CreateFooterButton("应用功耗限制", S);
             _buttonApplySettings.Margin = new Padding(0, 0, S(4), S(8));
 
             _buttonApplySettings.Click += (_, _) =>
@@ -428,7 +428,7 @@ namespace PreySense.Fan
             stack.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             stack.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-            _buttonResetDefaults = CreateFooterButton("Factory Defaults", S);
+            _buttonResetDefaults = CreateFooterButton("恢复出厂默认", S);
             _buttonSaveSettings.Click += (_, _) => SaveVisibleSettings();
             _buttonResetDefaults.Click += (_, _) => ResetDefaults();
 
@@ -537,13 +537,13 @@ namespace PreySense.Fan
                 FormattingEnabled = true
             };
             comboCpuBoost.Items.AddRange(new object[] { 
-                "Disabled", 
-                "Enabled", 
-                "Aggressive", 
-                "Efficient Enabled", 
-                "Efficient Aggressive", 
-                "Aggressive at Guaranteed", 
-                "Efficient Aggressive at Guaranteed" 
+                "已禁用", 
+                "已启用", 
+                "激进", 
+                "高效已启用", 
+                "高效激进", 
+                "保证频率下激进", 
+                "保证频率下高效激进" 
             });
             comboCpuBoost.Visible = true;
             comboCpuBoost.Dock = DockStyle.Fill;
@@ -565,7 +565,7 @@ namespace PreySense.Fan
             };
             labelCpuBoostTitle = new Label
             {
-                Text = "CPU Boost",
+                Text = "CPU 睿频",
                 AutoSize = true,
                 ForeColor = foreMain,
                 Font = labelPowerModeTitle.Font
@@ -606,8 +606,8 @@ namespace PreySense.Fan
             panelApplyCpuLimits.Padding = new Padding(S(4), S(6), S(4), S(6));
             panelCpuLimitsSection.AutoSize = true;
             SetTopDockOrder(panelCpuLimitsSection, cpuBoostHost, panelApplyCpuLimits, panelPl2, panelPl1, panelCpuLimitsTitle);
-            BuildSliderRow(panelGpuOffsetsSectionCore, labelGpuCoreTitle, "Core Offset (MHz)", labelGpuCoreValue, trackGpuCoreOffset, numGpuCoreOffset, S);
-            BuildSliderRow(panelGpuOffsetsSectionMemory, labelGpuMemoryTitle, "Memory Offset (MHz)", labelGpuMemoryValue, trackGpuMemoryOffset, numGpuMemoryOffset, S);
+            BuildSliderRow(panelGpuOffsetsSectionCore, labelGpuCoreTitle, "核心偏移 (MHz)", labelGpuCoreValue, trackGpuCoreOffset, numGpuCoreOffset, S);
+            BuildSliderRow(panelGpuOffsetsSectionMemory, labelGpuMemoryTitle, "显存偏移 (MHz)", labelGpuMemoryValue, trackGpuMemoryOffset, numGpuMemoryOffset, S);
             panelGpuOffsetsSection.AutoSize = true;
             panelGpuOffsetsSection.Padding = new Padding(0, 0, 0, S(10));
             SetTopDockOrder(panelGpuOffsetsSection, panelGpuOffsetsSectionMemory, panelGpuOffsetsSectionCore, panelGpuOffsetsTitle);
@@ -633,7 +633,7 @@ namespace PreySense.Fan
             table.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             table.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             table.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-            titleLabel.AutoSize = true; titleLabel.Visible = true; titleLabel.Text = titleText; titleLabel.ForeColor = foreMain; titleLabel.Font = new Font("Segoe UI", 9f, FontStyle.Bold); titleLabel.Anchor = AnchorStyles.Left; titleLabel.Margin = new Padding(0, S(4), 0, 0);
+            titleLabel.AutoSize = true; titleLabel.Visible = true; titleLabel.Text = titleText; titleLabel.ForeColor = foreMain; titleLabel.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9f, FontStyle.Bold); titleLabel.Anchor = AnchorStyles.Left; titleLabel.Margin = new Padding(0, S(4), 0, 0);
             host.AutoSize = true; if (host is FlowLayoutPanel flow) flow.AutoSizeMode = AutoSizeMode.GrowAndShrink; host.Dock = DockStyle.None; host.Anchor = AnchorStyles.Right; host.Margin = new Padding(S(8), 0, 0, 0);
             track.Dock = DockStyle.Fill; track.Visible = true; track.Margin = new Padding(0, S(4), 0, 0); track.MinimumSize = new Size(0, S(96)); track.Height = S(96); track.BackColor = formBack; StyleTrackTicks(track);
             table.Controls.Add(titleLabel, 0, 0); table.Controls.Add(host, 1, 0); table.Controls.Add(track, 0, 1); table.SetColumnSpan(track, 2);

@@ -6,7 +6,7 @@ namespace PreySense.Dialogs
 {
     public partial class ConfirmDialog : RForm
     {
-        public ConfirmDialog(string message, string title, string yesText = "Apply && Restart Now", string noText = "Cancel")
+        public ConfirmDialog(string message, string title, string yesText = "应用并立即重启", string noText = "取消")
         {
             InitializeComponent(message, title, yesText, noText);
             InitTheme(true);
@@ -16,7 +16,7 @@ namespace PreySense.Dialogs
             _labelMessage.ForeColor = RForm.foreMain;
         }
 
-        public static DialogResult Show(IWin32Window? owner, string message, string title, string yesText = "Apply && Restart Now", string noText = "Cancel")
+        public static DialogResult Show(IWin32Window? owner, string message, string title, string yesText = "应用并立即重启", string noText = "取消")
         {
             using var dialog = new ConfirmDialog(message, title, yesText, noText);
             dialog.StartPosition = owner == null

@@ -55,18 +55,18 @@ namespace PreySense
             {
                 var result = Dialogs.ConfirmDialog.Show(
                     null,
-                    "PawnIO is not installed. It is required to apply CPU power limits.\n\nWould you like to install it now?",
-                    "PawnIO Required",
-                    "Install PawnIO",
-                    "Continue"
+                    "未检测到 PawnIO 驱动。应用 CPU 功耗限制需要该驱动。\n\n是否现在安装？",
+                    "需要安装 PawnIO",
+                    "安装 PawnIO",
+                    "继续"
                 );
                 if (result == DialogResult.Yes)
                 {
                     Dialogs.ConfirmDialog.Show(
                         null,
-                        "Downloading the latest PawnIO driver installer.",
-                        "Installing PawnIO",
-                        "OK",
+                        "正在下载最新的 PawnIO 驱动程序安装包。",
+                        "正在安装 PawnIO",
+                        "确定",
                         ""
                     );
 
@@ -112,16 +112,16 @@ namespace PreySense
 
                     if (installed && PawnIO.IntelMsr.IsPawnIoAvailable(out _))
                     {
-                        Dialogs.ConfirmDialog.Show(null, "PawnIO has been successfully installed!", "PawnIO Installed", "OK", "");
+                        Dialogs.ConfirmDialog.Show(null, "PawnIO 安装成功！", "PawnIO 已安装", "确定", "");
                     }
                     else
                     {
                         var openUrl = Dialogs.ConfirmDialog.Show(
                             null,
-                            "PawnIO automatic installation did not complete successfully.\n\nWould you like to open the website to download and install it manually?",
-                            "Installation Failed",
-                            "Yes",
-                            "No"
+                            "PawnIO 自动安装未能成功完成。\n\n是否打开官网手动下载并安装？",
+                            "安装失败",
+                            "是",
+                            "否"
                         );
                         if (openUrl == DialogResult.Yes)
                         {
@@ -192,13 +192,13 @@ namespace PreySense
         {
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += (_, e) =>
-                ShowError("Prey Sense - Error", e.Exception);
+                ShowError("Prey Sense - 错误", e.Exception);
 
             AppDomain.CurrentDomain.UnhandledException += (_, e) =>
             {
                 if (e.ExceptionObject is Exception ex)
                 {
-                    ShowError("Prey Sense - Fatal Error", ex);
+                    ShowError("Prey Sense - 严重错误", ex);
                 }
             };
         }

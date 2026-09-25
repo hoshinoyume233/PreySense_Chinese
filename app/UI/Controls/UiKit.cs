@@ -5,7 +5,31 @@ namespace PreySense.UI;
 
 public static class UiTheme
 {
-    public const string FontFamily = "Segoe UI";
+    /// <summary>UI font family, resolved once at startup (see ResolveFontFamily).</summary>
+    public static readonly string FontFamily = ResolveFontFamily();
+
+    /// <summary>
+    /// Picks a UI font family that renders Simplified Chinese well, falling back to
+    /// Segoe UI (then to the system message font) when the preferred family is absent.
+    /// </summary>
+    public static string ResolveFontFamily()
+    {
+        foreach (string candidate in new[] { "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI" })
+        {
+            try
+            {
+                using var family = new FontFamily(candidate);
+                return family.Name;
+            }
+            catch
+            {
+                // Family is not installed — try the next candidate.
+            }
+        }
+
+        return SystemFonts.MessageBoxFont?.FontFamily.Name ?? "Segoe UI";
+    }
+
     public const int DialogPadding = 12;
     public const int CardGap = 10;
     public const int CardRadius = 4;

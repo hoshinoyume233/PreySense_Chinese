@@ -33,7 +33,7 @@ namespace PreySense.UI.Controls
             _layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             _layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-            ConfigureButton(_keyboardButton, "Keyboard");
+            ConfigureButton(_keyboardButton, "键盘灯效");
             ConfigureButton(_metricsButton, "Metrics");
 
             _keyboardButton.Click += (_, _) => KeyboardClicked?.Invoke(this, EventArgs.Empty);

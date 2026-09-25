@@ -36,7 +36,7 @@ public partial class ColorForm
         SuspendLayout();
         Controls.Clear();
 
-        UiTheme.ApplyFixedDialog(this, "Display Profile");
+        UiTheme.ApplyFixedDialog(this, "显示色彩配置");
         AutoSize = true;
         AutoSizeMode = AutoSizeMode.GrowAndShrink;
         ShowIcon = false;
@@ -59,11 +59,11 @@ public partial class ColorForm
         header.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
         header.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-        _title = _ui.Text("Display Profile", UiTheme.Font(scale, 9f, FontStyle.Bold), UiTheme.TextPrimary);
+        _title = _ui.Text("显示色彩配置", UiTheme.Font(scale, 9f, FontStyle.Bold), UiTheme.TextPrimary);
         _title.Margin = Padding.Empty;
         header.Controls.Add(_title, 0, 0);
 
-        _resetButton = _ui.Button("Reset", _ui.S(72), _ui.S(24), UiTheme.Font(scale, 8f, FontStyle.Bold), UiTheme.Separator, secondary: true);
+        _resetButton = _ui.Button("重置", _ui.S(72), _ui.S(24), UiTheme.Font(scale, 8f, FontStyle.Bold), UiTheme.Separator, secondary: true);
         _resetButton.BorderRadius = 2;
         _resetButton.Borderless = false;
         _resetButton.FlatStyle = FlatStyle.Flat;
@@ -85,12 +85,12 @@ public partial class ColorForm
 
         AddChannelButtonsRow(out _btnAll, out _btnRed, out _btnGreen, out _btnBlue);
 
-        AddRangeRow("Brightness", 0, 100, 50, 0, out _brightnessSlider, out _brightnessValue);
-        AddRangeRow("Contrast", 0, 100, 50, 0, out _contrastSlider, out _contrastValue);
-        AddRangeRow("Gamma", 0, 500, 100, 2, out _gammaSlider, out _gammaValue);
-        AddRangeRow("Saturation", 0, 100, 50, 0, out _saturationSlider, out _saturationValue);
-        AddRangeRow("Hue", -180, 180, 0, 0, out _hueSlider, out _hueValue);
-        AddDropDownRow("Bluelight Shield", out _blueLightCombo);
+        AddRangeRow("亮度", 0, 100, 50, 0, out _brightnessSlider, out _brightnessValue);
+        AddRangeRow("对比度", 0, 100, 50, 0, out _contrastSlider, out _contrastValue);
+        AddRangeRow("伽马", 0, 500, 100, 2, out _gammaSlider, out _gammaValue);
+        AddRangeRow("饱和度", 0, 100, 50, 0, out _saturationSlider, out _saturationValue);
+        AddRangeRow("色相", -180, 180, 0, 0, out _hueSlider, out _hueValue);
+        AddDropDownRow("防蓝光", out _blueLightCombo);
 
         _brightnessSlider.ValueChanged += SliderChanged;
         _contrastSlider.ValueChanged += SliderChanged;
@@ -248,10 +248,10 @@ public partial class ColorForm
         row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, btnWidth));
         row.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-        btnAll = _ui.Button("All", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
-        btnRed = _ui.Button("Red", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
-        btnGreen = _ui.Button("Green", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
-        btnBlue = _ui.Button("Blue", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
+        btnAll = _ui.Button("全部", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
+        btnRed = _ui.Button("红", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
+        btnGreen = _ui.Button("绿", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
+        btnBlue = _ui.Button("蓝", btnWidth, _ui.S(26), UiTheme.Font(_ui.Scale, 8.5f, FontStyle.Bold), UiTheme.Separator, secondary: true);
 
         foreach (var btn in new[] { btnAll, btnRed, btnGreen, btnBlue })
         {

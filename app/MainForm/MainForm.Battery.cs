@@ -49,26 +49,26 @@ namespace PreySense
                     (uint)sizeof(SYSTEM_BATTERY_STATE));
 
                 if (status != 0)
-                    return "Charge: --%";
+                    return "电量：--%";
 
                 if (!state.BatteryPresent)
-                    return "Charge: --%";
+                    return "电量：--%";
 
                 int rate = state.Rate;
                 if (rate > 0)
-                    return $"Charging: {rate / 1000.0:F1}W";
+                    return $"充电中：{rate / 1000.0:F1}W";
 
                 if (!state.AcOnLine && rate < 0)
-                    return $"Discharging: {Math.Abs(rate) / 1000.0:F1}W";
+                    return $"放电中：{Math.Abs(rate) / 1000.0:F1}W";
 
                 if (state.AcOnLine && rate == 0)
-                    return "Plugged in";
+                    return "已接通电源";
 
-                return "Charge: --%";
+                return "电量：--%";
             }
             catch
             {
-                return "Charge: --%";
+                return "电量：--%";
             }
         }
 
@@ -88,7 +88,7 @@ namespace PreySense
             try
             {
                 sliderBatteryChargeLimit.Value = mode == 1 ? 80 : 100;
-                labelBatteryStatusLimitTitle.Text = $"Battery Charge Limit: {sliderBatteryChargeLimit.Value}%";
+                labelBatteryStatusLimitTitle.Text = $"电池充电上限：{sliderBatteryChargeLimit.Value}%";
                 UpdateBatteryLimitButtonFromValue(sliderBatteryChargeLimit.Value);
             }
             finally
@@ -168,7 +168,7 @@ namespace PreySense
                                 sliderBatteryChargeLimit.Value = sliderValue;
                             }
 
-                            labelBatteryStatusLimitTitle.Text = $"Battery Charge Limit: {sliderBatteryChargeLimit.Value}%";
+                            labelBatteryStatusLimitTitle.Text = $"电池充电上限：{sliderBatteryChargeLimit.Value}%";
                             UpdateBatteryLimitButtonFromValue(sliderBatteryChargeLimit.Value);
                         }
                         finally

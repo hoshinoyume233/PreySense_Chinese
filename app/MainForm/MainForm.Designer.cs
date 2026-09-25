@@ -139,7 +139,7 @@ namespace PreySense
             buttonBatteryFull.BorderRadius = 2;
             buttonBatteryFull.FlatAppearance.BorderSize = 0;
             buttonBatteryFull.FlatStyle = FlatStyle.Flat;
-            buttonBatteryFull.Font = new Font("Segoe UI", 7.125F, FontStyle.Bold);
+            buttonBatteryFull.Font = new Font(PreySense.UI.UiTheme.FontFamily, 7.125F, FontStyle.Bold);
             buttonBatteryFull.ForeColor = SystemColors.ControlDark;
             buttonBatteryFull.Location = new Point(718, 81);
             buttonBatteryFull.Borderless = true;
@@ -202,13 +202,13 @@ namespace PreySense
             // 
             // labelBatteryStatusLimitTitle
             // 
-            labelBatteryStatusLimitTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelBatteryStatusLimitTitle.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelBatteryStatusLimitTitle.Location = new Point(43, 9);
             labelBatteryStatusLimitTitle.Margin = new Padding(8, 0, 8, 0);
             labelBatteryStatusLimitTitle.Name = "labelBatteryStatusLimitTitle";
             labelBatteryStatusLimitTitle.Size = new Size(467, 32);
             labelBatteryStatusLimitTitle.TabIndex = 37;
-            labelBatteryStatusLimitTitle.Text = "Battery Charge Limit";
+            labelBatteryStatusLimitTitle.Text = "电池充电上限";
             // 
             // panelFooter
             // 
@@ -259,7 +259,7 @@ namespace PreySense
             buttonTurboFanModePower.Secondary = false;
             buttonTurboFanModePower.Size = new Size(188, 120);
             buttonTurboFanModePower.TabIndex = 7;
-            buttonTurboFanModePower.Text = "Fans + Power";
+            buttonTurboFanModePower.Text = "风扇 + 功耗";
             buttonTurboFanModePower.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonTurboFanModePower.UseVisualStyleBackColor = false;
             // 
@@ -278,7 +278,7 @@ namespace PreySense
             buttonQuit.Secondary = true;
             buttonQuit.Size = new Size(255, 48);
             buttonQuit.TabIndex = 2;
-            buttonQuit.Text = "&Quit";
+            buttonQuit.Text = "退出(&Q)";
             buttonQuit.ImageAlign = ContentAlignment.MiddleLeft;
             buttonQuit.Padding = new Padding(10, 0, 10, 0);
             buttonQuit.TextAlign = ContentAlignment.MiddleCenter;
@@ -301,7 +301,7 @@ namespace PreySense
             buttonMetrics.Secondary = true;
             buttonMetrics.Size = new Size(254, 48);
             buttonMetrics.TabIndex = 1;
-            buttonMetrics.Text = "&Metrics";
+            buttonMetrics.Text = "监控(&M)";
             buttonMetrics.Padding = new Padding(10, 0, 10, 0);
             buttonMetrics.TextAlign = ContentAlignment.MiddleCenter;
             buttonMetrics.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -318,7 +318,7 @@ namespace PreySense
             checkRunOnStartup.Padding = new Padding(10, 0, 0, 0);
             checkRunOnStartup.Size = new Size(216, 46);
             checkRunOnStartup.TabIndex = 21;
-            checkRunOnStartup.Text = "Run on startup";
+            checkRunOnStartup.Text = "开机自启动";
             checkRunOnStartup.UseVisualStyleBackColor = true;
             // 
             // panelPerformance
@@ -378,7 +378,7 @@ namespace PreySense
             buttonEcoMode.Secondary = false;
             buttonEcoMode.Size = new Size(188, 120);
             buttonEcoMode.TabIndex = 1;
-            buttonEcoMode.Text = "&Silent";
+            buttonEcoMode.Text = "静音(&S)";
             buttonEcoMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonEcoMode.UseVisualStyleBackColor = false;
             // 
@@ -400,7 +400,7 @@ namespace PreySense
             buttonBalancedMode.Secondary = false;
             buttonBalancedMode.Size = new Size(188, 120);
             buttonBalancedMode.TabIndex = 1;
-            buttonBalancedMode.Text = "&Balanced";
+            buttonBalancedMode.Text = "均衡(&B)";
             buttonBalancedMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonBalancedMode.UseVisualStyleBackColor = false;
             // 
@@ -422,7 +422,7 @@ namespace PreySense
             buttonPerformanceMode.Secondary = false;
             buttonPerformanceMode.Size = new Size(188, 120);
             buttonPerformanceMode.TabIndex = 2;
-            buttonPerformanceMode.Text = "&Turbo";
+            buttonPerformanceMode.Text = "性能(&T)";
             buttonPerformanceMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonPerformanceMode.UseVisualStyleBackColor = false;
             // 
@@ -443,7 +443,7 @@ namespace PreySense
             buttonTurboFanMode.Secondary = false;
             buttonTurboFanMode.Size = new Size(191, 120);
             buttonTurboFanMode.TabIndex = 3;
-            buttonTurboFanMode.Text = "&Fans + Power";
+            buttonTurboFanMode.Text = "风扇 + 功耗(&F)";
             buttonTurboFanMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonTurboFanMode.UseVisualStyleBackColor = false;
             // 
@@ -475,14 +475,14 @@ namespace PreySense
             // 
             labelPerformanceMode.AccessibleRole = AccessibleRole.Caret;
             labelPerformanceMode.AutoSize = true;
-            labelPerformanceMode.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelPerformanceMode.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelPerformanceMode.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Polite;
             labelPerformanceMode.Location = new Point(40, 0);
             labelPerformanceMode.Margin = new Padding(8, 0, 8, 0);
             labelPerformanceMode.Name = "labelPerformanceMode";
             labelPerformanceMode.Size = new Size(234, 32);
             labelPerformanceMode.TabIndex = 0;
-            labelPerformanceMode.Text = "Performance Mode";
+            labelPerformanceMode.Text = "性能模式";
             // 
             // labelCpuFanStatus
             // 
@@ -575,7 +575,7 @@ namespace PreySense
             buttonEnduranceMode.Secondary = false;
             buttonEnduranceMode.Size = new Size(188, 120);
             buttonEnduranceMode.TabIndex = 4;
-            buttonEnduranceMode.Text = "Endurance";
+            buttonEnduranceMode.Text = "集显模式";
             buttonEnduranceMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonEnduranceMode.UseVisualStyleBackColor = false;
             // 
@@ -597,7 +597,7 @@ namespace PreySense
             buttonGpuStandardMode.Secondary = false;
             buttonGpuStandardMode.Size = new Size(188, 120);
             buttonGpuStandardMode.TabIndex = 5;
-            buttonGpuStandardMode.Text = "Standard";
+            buttonGpuStandardMode.Text = "标准模式";
             buttonGpuStandardMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonGpuStandardMode.UseVisualStyleBackColor = false;
             // 
@@ -622,7 +622,7 @@ namespace PreySense
             buttonGpuUltimateMode.Secondary = false;
             buttonGpuUltimateMode.Size = new Size(191, 120);
             buttonGpuUltimateMode.TabIndex = 6;
-            buttonGpuUltimateMode.Text = "Ultimate";
+            buttonGpuUltimateMode.Text = "独显直连";
             buttonGpuUltimateMode.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonGpuUltimateMode.UseVisualStyleBackColor = false;
             // 
@@ -652,13 +652,13 @@ namespace PreySense
             // labelGpuMode
             // 
             labelGpuMode.AutoSize = true;
-            labelGpuMode.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelGpuMode.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelGpuMode.Location = new Point(40, 0);
             labelGpuMode.Margin = new Padding(8, 0, 8, 0);
             labelGpuMode.Name = "labelGpuMode";
             labelGpuMode.Size = new Size(136, 32);
             labelGpuMode.TabIndex = 21;
-            labelGpuMode.Text = "GPU Mode";
+            labelGpuMode.Text = "显卡模式";
             // 
             // labelGpuModeFan
             // 
@@ -727,7 +727,7 @@ namespace PreySense
             buttonAutoRefreshRate.Secondary = false;
             buttonAutoRefreshRate.Size = new Size(188, 72);
             buttonAutoRefreshRate.TabIndex = 9;
-            buttonAutoRefreshRate.Text = "Auto";
+            buttonAutoRefreshRate.Text = "自动";
             buttonAutoRefreshRate.UseVisualStyleBackColor = false;
             // 
             // button60Hz
@@ -788,7 +788,7 @@ namespace PreySense
             buttonMaxRefreshRate.Secondary = false;
             buttonMaxRefreshRate.Size = new Size(188, 12);
             buttonMaxRefreshRate.TabIndex = 13;
-            buttonMaxRefreshRate.Text = "FHD";
+            buttonMaxRefreshRate.Text = "最高";
             buttonMaxRefreshRate.UseVisualStyleBackColor = false;
             buttonMaxRefreshRate.Visible = false;
             // 
@@ -815,7 +815,7 @@ namespace PreySense
             buttonColorProfiles.Dock = DockStyle.Right;
             buttonColorProfiles.FlatAppearance.BorderSize = 0;
             buttonColorProfiles.FlatStyle = FlatStyle.Flat;
-            buttonColorProfiles.Font = new Font("Segoe UI", 7.125F, FontStyle.Bold);
+            buttonColorProfiles.Font = new Font(PreySense.UI.UiTheme.FontFamily, 7.125F, FontStyle.Bold);
             buttonColorProfiles.ForeColor = SystemColors.ControlDark;
             buttonColorProfiles.Location = new Point(675, 0);
             buttonColorProfiles.Margin = new Padding(0);
@@ -823,7 +823,7 @@ namespace PreySense
             buttonColorProfiles.Secondary = true;
             buttonColorProfiles.Size = new Size(112, 40);
             buttonColorProfiles.TabIndex = 4;
-            buttonColorProfiles.Text = "Display";
+            buttonColorProfiles.Text = "显示设置";
             buttonColorProfiles.UseVisualStyleBackColor = false;
             // 
             // labelMiddleFanStatus
@@ -851,13 +851,13 @@ namespace PreySense
             // labelScreen
             // 
             labelScreen.AutoSize = true;
-            labelScreen.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelScreen.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelScreen.Location = new Point(40, 0);
             labelScreen.Margin = new Padding(4, 0, 4, 0);
             labelScreen.Name = "labelScreen";
             labelScreen.Size = new Size(176, 32);
             labelScreen.TabIndex = 26;
-            labelScreen.Text = "Laptop Screen";
+            labelScreen.Text = "屏幕刷新率";
             // 
             // panelRgb
             // 
@@ -880,7 +880,7 @@ namespace PreySense
             // 
             labelBacklight.Cursor = Cursors.Hand;
             labelBacklight.Dock = DockStyle.Top;
-            labelBacklight.Font = new Font("Segoe UI", 9F);
+            labelBacklight.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F);
             labelBacklight.ForeColor = SystemColors.GrayText;
             labelBacklight.Location = new Point(20, 112);
             labelBacklight.Margin = new Padding(4, 0, 4, 0);
@@ -973,7 +973,7 @@ namespace PreySense
             buttonRgbProfiles.Secondary = false;
             buttonRgbProfiles.Size = new Size(254, 48);
             buttonRgbProfiles.TabIndex = 14;
-            buttonRgbProfiles.Text = "Color Profiles";
+            buttonRgbProfiles.Text = "颜色配置";
             buttonRgbProfiles.UseVisualStyleBackColor = false;
             // 
             // comboRgbLightingMode
@@ -982,7 +982,7 @@ namespace PreySense
             comboRgbLightingMode.ButtonColor = Color.FromArgb(255, 255, 255);
             comboRgbLightingMode.Dock = DockStyle.Top;
             comboRgbLightingMode.FlatStyle = FlatStyle.Flat;
-            comboRgbLightingMode.Font = new Font("Segoe UI", 9F);
+            comboRgbLightingMode.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F);
             comboRgbLightingMode.FormattingEnabled = true;
             comboRgbLightingMode.Items.AddRange(new object[] { "Static", "Breathe", "Rainbow", "Strobe" });
             comboRgbLightingMode.Location = new Point(7, 7);
@@ -1017,7 +1017,7 @@ namespace PreySense
             // labelRgb
             // 
             labelRgb.AutoSize = true;
-            labelRgb.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelRgb.Font = new Font(PreySense.UI.UiTheme.FontFamily, 9F, FontStyle.Bold);
             labelRgb.Location = new Point(43, 0);
             labelRgb.Margin = new Padding(4, 0, 4, 0);
             labelRgb.Name = "labelRgb";
@@ -1049,7 +1049,7 @@ namespace PreySense
             checkAutoGpuBattery.Padding = new Padding(10, 0, 0, 0);
             checkAutoGpuBattery.Size = new Size(365, 40);
             checkAutoGpuBattery.TabIndex = 40;
-            checkAutoGpuBattery.Text = "iGPU on Battery";
+            checkAutoGpuBattery.Text = "电池时使用集显";
             checkAutoGpuBattery.UseVisualStyleBackColor = true;
             checkRunOnStartup.BackColor = buttonSecond;
             // 

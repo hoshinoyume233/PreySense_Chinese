@@ -61,7 +61,7 @@ namespace PreySense.Overlay
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            _bodyFont ??= new Font("Segoe UI", 10.5f, FontStyle.Bold, GraphicsUnit.Point);
+            _bodyFont ??= new Font(PreySense.UI.UiTheme.FontFamily, 10.5f, FontStyle.Bold, GraphicsUnit.Point);
 
             Rectangle bounds = Bound;
             using var shadowBrush = new SolidBrush(Color.FromArgb(50, 0, 0, 0));
